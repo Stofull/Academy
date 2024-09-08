@@ -9,6 +9,7 @@ namespace asp_project.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //[Authorize]
     public class TeachersController : ControllerBase
     {
         private readonly AcademyContext _context;
@@ -26,7 +27,7 @@ namespace asp_project.Controllers
         }
 
         [HttpPost("Add")]
-        [Authorize(Roles = "appadmin")]
+        //[Authorize(Roles = "appadmin")]
         public IActionResult AddTeacher([FromBody] Teacher teacher)
         {
             if (teacher == null)
@@ -41,7 +42,7 @@ namespace asp_project.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        [Authorize(Roles = "appadmin")]
+        //[Authorize(Roles = "appadmin")]
         public IActionResult DeleteTeacher(int id)
         {
             var teacher = _context.Teachers.Find(id);
@@ -57,7 +58,7 @@ namespace asp_project.Controllers
         }
 
         [HttpPut("Edit")]
-        [Authorize(Roles = "appadmin")]
+        //[Authorize(Roles = "appadmin")]
         public IActionResult EditTeacher([FromBody] Teacher teacher)
         {
             if (teacher == null || teacher.Id == 0)

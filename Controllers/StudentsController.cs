@@ -57,7 +57,7 @@ namespace asp_project.Controllers
         }
 
         [HttpPut("Edit")]
-        [Authorize(Roles = "appadmin")]
+        //[Authorize(Roles = "appadmin")]
         public IActionResult EditStudent([FromBody] Student student)
         {
             if (student == null || student.Id == 0)
